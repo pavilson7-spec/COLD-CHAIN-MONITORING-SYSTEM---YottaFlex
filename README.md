@@ -93,7 +93,7 @@ $env:PYTHONPATH="backend"
 
 ## 5. Mandatory Negative Scenarios Handled
 
-1. **Reading outside physical range:** Telemetry values exceeding `[-80, 70]Â°C` are flagged as critical hardware anomalies.
+1. **Reading outside physical range:** Telemetry values exceeding `[-80, 70]°C` are flagged as critical hardware anomalies.
 2. **Missing interval safe assumption prevention:** Telemetry gaps (>10 min) are flagged as critical telemetry failures rather than assumed safe.
 3. **Shipment delivered before departure:** Rejected by both backend validator and shipment lifecycle transition logic.
 4. **Wrong product threshold applied:** Foreign key integrity and calibration status checks prevent mismatched or expired policies.
@@ -105,34 +105,33 @@ $env:PYTHONPATH="backend"
 
 ```
 Cold Chain Monitoring/
-â”œâ”€â”€ backend/
-â”‚   â”œâ”€â”€ alembic/              # Alembic migration revisions
-â”‚   â”œâ”€â”€ app/
-â”‚   â”‚   â”œâ”€â”€ core/             # Database connection pool, security, configs
-â”‚   â”‚   â”œâ”€â”€ models/           # 10 core SQLAlchemy models + Users & Alerts
-â”‚   â”‚   â”œâ”€â”€ routes/           # REST endpoints (/auth, /dashboard, /entities, etc.)
-â”‚   â”‚   â”œâ”€â”€ schemas/          # Pydantic v2 schemas
-â”‚   â”‚   â”œâ”€â”€ services/         # Deterministic Excursion Rule Engine
-â”‚   â”‚   â””â”€â”€ validators/       # Automated data integrity & audit validator
-â”‚   â”œâ”€â”€ tests/                # Automated pytest test cases
-â”‚   â””â”€â”€ requirements.txt
-â”œâ”€â”€ frontend/
-â”‚   â”œâ”€â”€ src/
-â”‚   â”‚   â”œâ”€â”€ layouts/          # Responsive enterprise dashboard layout
-â”‚   â”‚   â”œâ”€â”€ pages/            # 16 complete functional application pages
-â”‚   â”‚   â””â”€â”€ services/         # Axios API client
-â”‚   â””â”€â”€ package.json
-â”œâ”€â”€ generator/
-â”‚   â”œâ”€â”€ generate_data.py      # Synthetic dataset generator (seed: 20261022)
-â”‚   â”œâ”€â”€ inject_anomalies.py   # Mandatory negative scenario injector
-â”‚   â”œâ”€â”€ ground_truth.py       # Isolated ground truth tracker
-â”‚   â””â”€â”€ validate_data.py      # Automated integrity verification
-â”œâ”€â”€ data/
-â”‚   â”œâ”€â”€ generated/            # ground_truth.csv, ground_truth.json, manifests
-â”‚   â””â”€â”€ exports/              # CSV/JSON exports
-â”œâ”€â”€ docs/                     # Data dictionary, schema, architecture, reports
-â”œâ”€â”€ .env.example
-â”œâ”€â”€ .gitignore
-â””â”€â”€ README.md
+├── backend/
+│   ├── alembic/              # Alembic migration revisions
+│   ├── app/
+│   │   ├── core/             # Database connection pool, security, configs
+│   │   ├── models/           # 10 core SQLAlchemy models + Users & Alerts
+│   │   ├── routes/           # REST endpoints (/auth, /dashboard, /entities, etc.)
+│   │   ├── schemas/          # Pydantic v2 schemas
+│   │   ├── services/         # Deterministic Excursion Rule Engine
+│   │   └── validators/       # Automated data integrity & audit validator
+│   ├── tests/                # Automated pytest test cases
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── layouts/          # Responsive enterprise dashboard layout
+│   │   ├── pages/            # 16 complete functional application pages
+│   │   └── services/         # Axios API client
+│   └── package.json
+├── generator/
+│   ├── generate_data.py      # Synthetic dataset generator (seed: 20261022)
+│   ├── inject_anomalies.py   # Mandatory negative scenario injector
+│   ├── ground_truth.py       # Isolated ground truth tracker
+│   └── validate_data.py      # Automated integrity verification
+├── data/
+│   ├── generated/            # ground_truth.csv, ground_truth.json, manifests
+│   └── exports/              # CSV/JSON exports
+├── docs/                     # Data dictionary, schema, architecture, reports
+├── .env.example
+├── .gitignore
+└── README.md
 ```
-

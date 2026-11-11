@@ -1,0 +1,9 @@
+{
+  "shipments_count": 50,
+  "containers_count": 15,
+  "sensors_count": 30,
+  "readings_count": 111270,
+  "seed": 20261022,
+  "readings_per_shipment": null,
+  "sampling_interval_minutes": 5
+}
