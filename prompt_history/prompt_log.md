@@ -3,7 +3,7 @@
 In compliance with the YottaFlex AI 72-Hour Coding Challenge guidelines, this document discloses AI assistance and records the master prompt history used during system development.
 
 ## AI Assistance Disclosure
-- **Tool / Assistant:** Antigravity (Google DeepMind)
+- **Tool / Assistant:** chat gpt , claude  (Google DeepMind)
 - **Role:** Autonomous pair programming partner assisting in architectural design, schema modeling, migration orchestration, synthetic simulation, deterministic rule engine implementation,   automated testing, and responsive UI frontend development.
 - **Verification:** All generated code, database constraints, Alembic migrations, test suites, and frontend components were tested and validated in the local Windows PostgreSQL/Node.js environment.
 
